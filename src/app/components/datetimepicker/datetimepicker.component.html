@@ -1,0 +1,22 @@
+<div class="input-container">
+  <input type="text"
+         class="form-input"
+         placeholder="Choose a date"
+         [max]="now"
+         [class.ng-invalid]="control.invalid"
+         [class.ng-touched]="control.touched"
+         [ngModel]="date"
+         [matDatepicker]="datepicker!"
+         (click)="datepicker.open()"
+         (ngModelChange)="handleDateChange($event)">
+  <mat-datepicker #datepicker></mat-datepicker>
+</div>
+
+<div class="input-container">
+  <input type="time"
+         class="form-input"
+         [class.ng-invalid]="control.invalid"
+         [class.ng-touched]="control.touched"
+         [ngModel]="time"
+         (ngModelChange)="handleTimeChange($event)">
+</div>
