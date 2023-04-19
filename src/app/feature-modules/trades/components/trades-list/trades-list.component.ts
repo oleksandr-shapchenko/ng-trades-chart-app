@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { TradeListItem } from '../../../../types/trade-list-item';
 
 @Component({
   selector: 'app-trades-list',
   templateUrl: './trades-list.component.html',
-  styleUrls: ['./trades-list.component.scss']
+  styleUrls: ['./trades-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TradesListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class TradesListComponent {
+  @Input() tradeList: TradeListItem[];
+  @Output() selectTrade = new EventEmitter<TradeListItem>();
 }

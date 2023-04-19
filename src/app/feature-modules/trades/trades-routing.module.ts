@@ -6,8 +6,9 @@ import { TradesComponent } from './pages/trades/trades.component';
 import { TradesChartComponent } from './pages/trades-chart/trades-chart.component';
 
 const children: Routes = [
-  { path: '', component: TradesComponent },
-  { path: 'chart', component: TradesChartComponent }
+  { path: 'list', component: TradesComponent },
+  { path: 'chart', component: TradesChartComponent },
+  { path: '**', redirectTo: 'list' }
 ];
 
 const routes: Routes = [

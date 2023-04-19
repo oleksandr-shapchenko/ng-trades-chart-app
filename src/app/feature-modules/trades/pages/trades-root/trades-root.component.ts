@@ -3,7 +3,10 @@ import { Component } from '@angular/core';
 import { TradeStateService } from '../../services/trade-state.service';
 
 @Component({
-  template: '<router-outlet></router-outlet>',
+  templateUrl: 'trades-root.component.html',
+  styleUrls: ['trades-root.component.scss'],
   providers: [TradeStateService]
 })
-export class TradesRootComponent {}
+export class TradesRootComponent {
+  public readonly links = ['list', 'chart'];
+}

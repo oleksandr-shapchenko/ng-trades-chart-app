@@ -1,1 +1,51 @@
-<p>trade-edit works!</p>
+<div class="card" [formGroup]="form">
+  <div class="row">
+    <div class="form-field">
+      <div class="label">Entry date</div>
+      <app-datetimepicker formControlName="entryDate"></app-datetimepicker>
+    </div>
+    <div class="form-field">
+      <div class="label">Exit date</div>
+      <app-datetimepicker formControlName="exitDate"></app-datetimepicker>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-field">
+      <div class="label">Entry price</div>
+      <input type="number"
+             class="form-input"
+             min="0"
+             formControlName="entryPrice">
+    </div>
+    <div class="form-field">
+      <div class="label">Exit price</div>
+      <input type="number"
+             class="form-input"
+             min="0"
+             formControlName="exitPrice">
+    </div>
+    <div class="profit">
+      <div class="label">Profit</div>
+      <span>{{form.get('profit')!.value}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="separator"></div>
+    <button mat-stroked-button
+            [disabled]="!(tradeState.selectedTradeItem$ | async)"
+            (click)="resetForm(); tradeState.selectedTradeItem$.next(null)">
+      Cancel
+    </button>
+    <button mat-stroked-button
+            color="warn"
+            [disabled]="!(tradeState.selectedTradeItem$ | async)"
+            (click)="deleteTrade()">
+      Delete
+    </button>
+    <button mat-flat-button
+            color="primary"
+            (click)="submit()">
+      {{tradeState.selectedTradeItem$.value ? 'Edit' : 'Add'}}
+    </button>
+  </div>
+</div>

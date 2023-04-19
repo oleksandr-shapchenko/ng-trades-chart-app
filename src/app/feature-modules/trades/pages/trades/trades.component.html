@@ -1,1 +1,13 @@
-<p>trades works!</p>
+<div class="list">
+  <h3>List of trades</h3>
+  <app-trades-list [tradeList]="(tradeState.fullTradeList$ | async)!"
+                   (selectTrade)="tradeState.selectedTradeItem$.next($event)">
+  </app-trades-list>
+</div>
+
+<div class="edit">
+  <h3>{{tradeState.selectedTradeItem$.value ? 'Edit trade' : 'Add trade'}}</h3>
+  <app-trade-edit></app-trade-edit>
+</div>
+
+<app-loader *ngIf="(tradeState.loading$ | async)!"></app-loader>
