@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { TradesRoutingModule } from './trades-routing.module';
@@ -23,10 +24,12 @@ import { TradesListComponent } from './components/trades-list/trades-list.compon
     TradesRoutingModule,
     MatTabsModule,
     MatButtonModule,
+    MatRadioModule,
     LoaderModule,
     ReactiveFormsModule,
     DatetimepickerModule,
-    NgxEchartsModule.forRoot({ echarts: () => import('echarts') })
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
+    FormsModule
   ]
 })
 export class TradesModule {}

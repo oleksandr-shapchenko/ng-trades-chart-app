@@ -1,32 +1,37 @@
 <ng-container *ngIf="tradeList.length">
-  <div *ngFor="let trade of tradeList"
-       class="card"
-       (click)="selectTrade.emit(trade)">
-    <div class="row">
-      <div class="field">
-        <div class="title">Entry Date</div>
-        <div class="value">{{trade.entryDate | date: 'dd/MM/yyyy'}}</div>
+  <mat-radio-group [ngModel]="selectedTrade"
+                   (ngModelChange)="selectedTrade = $event; selectTrade.emit($event)">
+    <mat-radio-button *ngFor="let trade of tradeList"
+                      color="warn"
+                      [value]="trade">
+      <div class="card">
+        <div class="row">
+          <div class="field">
+            <div class="title">Entry Date</div>
+            <div class="value">{{trade.entryDate | date: 'dd/MM/yyyy'}}</div>
+          </div>
+          <div class="field">
+            <div class="title">Exit Date</div>
+            <div class="value">{{trade.exitDate | date: 'dd/MM/yyyy'}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <div class="title">Entry Price</div>
+            <div class="value">{{trade.entryPrice}}</div>
+          </div>
+          <div class="field">
+            <div class="title">Exit Price</div>
+            <div class="value">{{trade.exitPrice}}</div>
+          </div>
+          <div class="field">
+            <div class="title">Profit</div>
+            <div class="value">{{trade.profit}}</div>
+          </div>
+        </div>
       </div>
-      <div class="field">
-        <div class="title">Exit Date</div>
-        <div class="value">{{trade.exitDate | date: 'dd/MM/yyyy'}}</div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="field">
-        <div class="title">Entry Price</div>
-        <div class="value">{{trade.entryPrice}}</div>
-      </div>
-      <div class="field">
-        <div class="title">Exit Price</div>
-        <div class="value">{{trade.exitPrice}}</div>
-      </div>
-      <div class="field">
-        <div class="title">Profit</div>
-        <div class="value">{{trade.profit}}</div>
-      </div>
-    </div>
-  </div>
+    </mat-radio-button>
+  </mat-radio-group>
 </ng-container>
 
 <ng-container *ngIf="!tradeList.length">

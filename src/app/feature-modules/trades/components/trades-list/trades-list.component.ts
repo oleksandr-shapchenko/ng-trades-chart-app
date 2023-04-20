@@ -10,5 +10,6 @@ import { TradeListItem } from '../../../../types/trade-list-item';
 })
 export class TradesListComponent {
   @Input() tradeList: TradeListItem[];
+  @Input() selectedTrade: TradeListItem;
   @Output() selectTrade = new EventEmitter<TradeListItem>();
 }

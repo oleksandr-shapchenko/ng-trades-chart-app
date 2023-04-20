@@ -1,6 +1,7 @@
 <div class="list">
   <h3>List of trades</h3>
   <app-trades-list [tradeList]="(tradeState.fullTradeList$ | async)!"
+                   [selectedTrade]="(tradeState.selectedTradeItem$ | async)!"
                    (selectTrade)="tradeState.selectedTradeItem$.next($event)">
   </app-trades-list>
 </div>
