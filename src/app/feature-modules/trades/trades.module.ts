@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { TradesRoutingModule } from './trades-routing.module';
 import { LoaderModule } from '../../components/loader/loader.module';
@@ -16,6 +17,16 @@ import { TradesListComponent } from './components/trades-list/trades-list.compon
 
 @NgModule({
   declarations: [TradeEditComponent, TradesChartComponent, TradesComponent, TradesListComponent, TradesRootComponent],
-  imports: [CommonModule, RouterOutlet, TradesRoutingModule, MatTabsModule, MatButtonModule, LoaderModule, ReactiveFormsModule, DatetimepickerModule]
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    TradesRoutingModule,
+    MatTabsModule,
+    MatButtonModule,
+    LoaderModule,
+    ReactiveFormsModule,
+    DatetimepickerModule,
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') })
+  ]
 })
 export class TradesModule {}

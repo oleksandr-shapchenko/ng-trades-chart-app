@@ -1,1 +1,3 @@
-<p>trades-chart works!</p>
+<div class="chart" echarts [options]="options"></div>
+
+<app-loader *ngIf="tradeState.loading$ | async"></app-loader>
